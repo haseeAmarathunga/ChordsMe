@@ -1,0 +1,7 @@
+{
+  "name": "guitar-tuner",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
