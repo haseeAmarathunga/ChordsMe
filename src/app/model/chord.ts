@@ -7,4 +7,5 @@ export class Chord {
     singer: string;
     keywords: string[];
     chords: string;
+    artistCode: string;
 }

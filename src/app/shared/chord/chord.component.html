@@ -1,25 +1,28 @@
 <ion-row>
   <ion-col col-md-8>
   </ion-col>
-  <ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
+  <ion-button color="danger" (click)="goBack()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
 </ion-row>
 <ion-content class="ion-padding">
   <ion-list>
+    <ion-item>
+      <pre [ngStyle]="{ 'font-size': (size+'px') }">
+Song : {{chords?.song}}
+Artist : {{chords?.singer}}
+Key : {{chords?.key}}
+Beat : {{chords?.beat}}
+
+Transpose : <button (click)="transposeTo(key)" [ngClass]="checkKey(key) ? 'highlight' : 'not-highlight'"
+                    [ngStyle]="{ 'font-size': (size+'px') }" color="warning" *ngFor="let key of keys">{{key}}</button>
+      </pre>
+    </ion-item>
     <ion-item>
       <ion-button color="ternary" (click)="zoomOut()"><ion-icon color="danger" name="remove"></ion-icon></ion-button>
       <ion-button color="ternary" (click)="zoomIn()"><ion-icon color="warning" name="add"></ion-icon></ion-button>
     </ion-item>
     <ion-item>
       <pre [ngStyle]="{ 'font-size': (size+'px') }">
-        Song : {{chords.song}}
-        Artist : {{chords.singer}}
-        Key : {{chords.key}}
-        Beat : {{chords.beat}}
-      </pre>
-    </ion-item>
-    <ion-item>
-      <pre [ngStyle]="{ 'font-size': (size+'px') }">
-        {{chords.chords}}
+        {{chords?.chords}}
       </pre>
     </ion-item>
   </ion-list>

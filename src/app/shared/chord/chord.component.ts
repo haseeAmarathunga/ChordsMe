@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {Chord} from '../../model/chord';
+import {NotificationService} from '../../services/notification.service';
 
 @Component({
   selector: 'app-chord',
@@ -9,52 +10,16 @@ import {Chord} from '../../model/chord';
 })
 export class ChordComponent implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController,
+              private notifyService: NotificationService) { }
   keys = ['Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G'];
   size = 13;
   chords: Chord;
+  @Input() data: Chord;
   ngOnInit() {
-    const chord = new Chord();
-    chord.chords = '[Intro]\n' +
-        '-----------------------------------\n' +
-        ' C   Am   F   G\n' +
-        'Na ne naane...\n' +
-        '\n' +
-        '[Verse 1]\n' +
-        '-----------------------------------\n' +
-        'C              Am\n' +
-        'Udula tharu me ahas thalayen\n' +
-        'F            G\n' +
-        'Wasan wee waage...\n' +
-        'Dm          F              C\n' +
-        'Maaara sena hadata kendana yaame lan wuye\n' +
-        'C            Am           F          G\n' +
-        'Megha warsha gaala helune seda yahanawe\n' +
-        'Dm           Am           F          G\n' +
-        'Dore yana me hangum ganga ohe salunaawe...\n' +
-        '\n' +
-        '[Chorus]\n' +
-        '-----------------------------------\n' +
-        'C             Am                F          G\n' +
-        'Sandaganawata sandaluthala sipa suwada yaamaye\n' +
-        'C            Am              F      G           C\n' +
-        'Unuhume gihi thudata meepani genewi raathriye aaye...\n' +
-        '\n' +
-        '[Verse 2]\n' +
-        '-----------------------------------\n' +
-        'C            Am           F               G\n' +
-        'Kaalekin man aawe naththe pahala gang theere\n' +
-        'Dm              F             C             G\n' +
-        'Iwura thalasipa ganna awasara deda hitha keewe\n' +
-        'C           Am            F           G\n' +
-        'Gewiyana me bhawe jiwitha gaane sansaare\n' +
-        'Dm               Am             F            G\n' +
-        'Magema wee pathiniya numbe diwi gewewaa nibande';
-    chord.beat = '4/4';
-    chord.key = 'Am';
-    chord.song = 'Udula Tharu';
-    chord.singer = 'Chamal Perera';
-    this.chords = chord;
+    if (this.data) {
+      this.chords = this.data;
+    }
   }
   zoomIn() {
     this.size += 1;
@@ -65,5 +30,22 @@ export class ChordComponent implements OnInit {
 
   goBack() {
     this.modalController.dismiss();
+  }
+
+  checkKey(key: string) {
+    let keyFam = '';
+    for (let i = 0; i <= this.chords.key.length; i++) {
+      if (!(this.chords.key.charAt(i) === 'm' || this.chords.key.charAt(i) === '7')) {
+        keyFam += this.chords.key.charAt(i);
+      }
+    }
+    if (keyFam === key) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  transposeTo(key) {
+    this.notifyService.info('Transpose will coming soon!');
   }
 }
