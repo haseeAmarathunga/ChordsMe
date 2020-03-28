@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sinhala</ion-title>
+    <ion-title>Sinhala Songs</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button (click)="loadChords('perawadanak')">
-    Load Song
-  </ion-button>
+  <ion-list>
+    <ion-item *ngFor="let chord of chords">
+      <a (click)="loadChords(chord)">{{chord.song}}</a>
+    </ion-item>
+  </ion-list>
 </ion-content>
