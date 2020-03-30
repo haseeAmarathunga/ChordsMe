@@ -1,13 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sinhala Songs</ion-title>
+    <ion-row>
+      <ion-col col-md-8>
+        <ion-title *ngIf="isHome">Sinhala Songs</ion-title>
+        <ion-title *ngIf="!isHome && isArtistPage">Artists</ion-title>
+        <ion-title *ngIf="!isHome && !isArtistPage">{{selectedArtist}}</ion-title>
+      </ion-col>
+      <ion-button *ngIf="isHome" color="warning" (click)="goToMain()"><ion-icon name="home"></ion-icon> </ion-button>
+      <ion-button *ngIf="!isHome && isArtistPage" color="danger" (click)="backToHome()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
+      <ion-button *ngIf="!isHome && !isArtistPage" color="danger" (click)="backToArtistPage()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let chord of chords">
-      <a (click)="loadChords(chord)">{{chord.song}}</a>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="isHome">
+    <ion-button (click)="goToNew()">New</ion-button>
+    <ion-button (click)="goToArtist()">Artists</ion-button>
+    <ion-button>Albums</ion-button>
+    <ion-button>Search</ion-button>
+  </div>
+
+  <div *ngIf="!isHome && isArtistPage">
+
+    <div class="autocomplete">
+      <ion-searchbar
+              [(ngModel)]="searchTextArtist"
+              (ionFocus)="addFocusArtist()"
+              (keyup)="searchArtist()"
+              (ionBlur)="removeFocusArtist()"
+              debounce=500>
+      </ion-searchbar>
+      <ion-list>
+        <ion-item class="artist-list" *ngFor="let artist of filteredArtists | async" (click)="gotoChordList(artist)">
+          {{artist.name}}
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+  <div *ngIf="!isHome && !isArtistPage">
+    <ion-searchbar
+            [(ngModel)]="searchTextChord"
+            (ionFocus)="addFocusChord()"
+            (keyup)="searchChord()"
+            (ionBlur)="removeFocusChord()"
+            debounce=500>
+    </ion-searchbar>
+    <ion-list>
+      <ion-item class="artist-list" *ngFor="let chord of filteredChords | async" (click)="loadChords(chord)">
+        {{chord.singer}}
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

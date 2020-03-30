@@ -8,4 +8,5 @@ export class Chord {
     keywords: string[];
     chords: string;
     artistCode: string;
+    language: string;
 }
