@@ -48,7 +48,7 @@
     </ion-searchbar>
     <ion-list>
       <ion-item class="artist-list" *ngFor="let chord of filteredChords | async" (click)="loadChords(chord)">
-        {{chord.singer}}
+        {{chord.song}}
       </ion-item>
     </ion-list>
   </div>
