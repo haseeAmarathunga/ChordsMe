@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AboutPageRoutingModule } from './about-routing.module';
 
 import { AboutPage } from './about.page';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AboutPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AboutPageRoutingModule,
+        FlexLayoutModule
+    ],
   declarations: [AboutPage]
 })
 export class AboutPageModule {}

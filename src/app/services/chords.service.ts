@@ -29,4 +29,15 @@ export class ChordsService {
       });
     }));
   }
+
+  findChordsByName(keywords) {
+    return this.fireStore.collection('chords', ref => ref.where('keywords', 'array-contains', keywords)
+    ).snapshotChanges().pipe(map(chords => {
+      return chords.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    }));
+  }
 }

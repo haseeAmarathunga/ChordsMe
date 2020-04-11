@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.page.html',
-  styleUrls: ['./about.page.scss'],
+    selector: 'app-about',
+    templateUrl: './about.page.html',
+    styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
 
-  constructor() { }
+    constructor(private navCtrl: NavController) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    goToMain() {
+        this.navCtrl.navigateRoot('tabs/home');
+    }
 }

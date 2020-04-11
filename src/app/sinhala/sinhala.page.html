@@ -1,24 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row>
-      <ion-col col-md-8>
-        <ion-title *ngIf="isHome">Sinhala Songs</ion-title>
-        <ion-title *ngIf="!isHome && isArtistPage">Artists</ion-title>
-        <ion-title *ngIf="!isHome && !isArtistPage">{{selectedArtist}}</ion-title>
-      </ion-col>
-      <ion-button *ngIf="isHome" color="warning" (click)="goToMain()"><ion-icon name="home"></ion-icon> </ion-button>
-      <ion-button *ngIf="!isHome && isArtistPage" color="danger" (click)="backToHome()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
-      <ion-button *ngIf="!isHome && !isArtistPage" color="danger" (click)="backToArtistPage()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
-    </ion-row>
+    <ion-title>
+      <div fxLayout="row">
+        <div fxFlex="20%">
+          <img src="assets/images/logo2.png" width="80">
+        </div>
+
+        <div fxFlex="80%">
+          <div fxLayout="row">
+            <div fxFlex="80%" style="margin-top: 30px; text-align: center;">
+              <span *ngIf="isHome">Sinhala Songs</span>
+              <span *ngIf="!isHome && isArtistPage">Artists</span>
+              <span *ngIf="!isHome && !isArtistPage" style="font-size: 18px;">{{selectedArtist}}</span>
+            </div>
+            <div fxFlex="20%" style="margin-top: 20px;">
+              <ion-button *ngIf="isHome" color="warning" (click)="goToMain()"><ion-icon name="home"></ion-icon> </ion-button>
+              <ion-button *ngIf="!isHome && isArtistPage" color="danger" (click)="backToHome()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
+              <ion-button *ngIf="!isHome && !isArtistPage" color="danger" (click)="backToArtistPage()"><ion-icon name="arrow-back"></ion-icon> </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div *ngIf="isHome">
-    <ion-button (click)="goToNew()">New</ion-button>
-    <ion-button (click)="goToArtist()">Artists</ion-button>
-    <ion-button>Albums</ion-button>
-    <ion-button>Search</ion-button>
+    <ion-row>
+      <ion-img src="assets/images/sinhala-geetha.jpg"></ion-img>
+      <ion-col col-md-6>
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="goToArtist()">
+          <img src="assets/images/icons/1.png" width="50" height="50"><br/><b>Artists</b></button>
+      </ion-col>
+
+      <ion-col col-md-6>
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
+          <img src="assets/images/icons/itune.png" width="50" height="50"><br/><b>Albums</b></button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-md-6>
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
+          <img src="assets/images/icons/new-music.png" width="50" height="50"><br/><b>Latest</b></button>
+      </ion-col>
+
+      <ion-col col-md-6>
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
+          <img src="assets/images/icons/search.png" width="50" height="50"><br/><b>Search</b></button>
+      </ion-col>
+    </ion-row>
+
   </div>
 
   <div *ngIf="!isHome && isArtistPage">

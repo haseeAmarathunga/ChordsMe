@@ -13,7 +13,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {ProgressDialogComponent} from './shared/progress-dialog/progress-dialog.component';
 
 @NgModule({
@@ -25,6 +25,7 @@ import {ProgressDialogComponent} from './shared/progress-dialog/progress-dialog.
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
       MatDialogModule,
+      MatButtonModule,
     AppRoutingModule],
   providers: [
     StatusBar,

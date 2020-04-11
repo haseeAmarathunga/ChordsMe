@@ -1,20 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            <div fxLayout="row">
+                <div fxFlex="20%">
+                    <img src="assets/images/logo2.png" width="80">
+                </div>
+                <div fxFlex="80%">
+                    <div fxLayout="row">
+                        <div fxFlex="80%" style="margin-top: 30px; text-align: center;">
+                            Chords Me
+                        </div>
+                        <div fxFlex="20%"></div>
+                    </div>
+                </div>
+            </div>
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <img src="/assets/images/guitar.jpg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Guitar Chords</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>This is a guitar chords application for view songs chords with the facility of transpose</p>
-      </ion-card-content>
+        <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide>
+                <img src="assets/images/slides/slide1.jpg" alt=""/>
+            </ion-slide>
+            <ion-slide>
+                <img src="assets/images/slides/slide2.jpg" alt=""/>
+            </ion-slide>
+            <ion-slide>
+                <img src="assets/images/slides/slide3.jfif" alt=""/>
+            </ion-slide>
+            <ion-slide>
+                <img src="assets/images/slides/slide4.jpg" alt=""/>
+            </ion-slide>
+        </ion-slides>
+        <ion-card-header style="text-align: center; horiz-align: center; vertical-align: middle;">
+            <ion-card-subtitle>Get Started</ion-card-subtitle>
+            <ion-card-title>Welcome to Chords Me</ion-card-title>
+        </ion-card-header>
+        <ion-card-content style="text-align: center; horiz-align: center; vertical-align: middle;">
+            <p>This is a guitar chords application for view songs chords with different categories & features like Transpose</p>
+        </ion-card-content>
     </ion-card>
+    <img src="assets/images/logo2.png" width="200" height="200" style="margin-left: 100px;">
 </ion-content>

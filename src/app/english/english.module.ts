@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { EnglishPageRoutingModule } from './english-routing.module';
 
 import { EnglishPage } from './english.page';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EnglishPageRoutingModule
+    EnglishPageRoutingModule,
+    FlexLayoutModule,
+    MatButtonModule,
   ],
   declarations: [EnglishPage]
 })
