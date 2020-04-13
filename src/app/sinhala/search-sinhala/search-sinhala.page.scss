@@ -1,0 +1,47 @@
+ion-title{
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color:  #183b8d;
+}
+
+.autocomplete {
+  width: 100%;
+
+  ion-searchbar {
+    padding: 1px !important;
+  }
+
+  ion-list {
+    position: absolute;
+    width: inherit;
+    overflow-y: scroll;
+    max-height: 150%;
+    z-index: 999;
+
+    ion-item {
+
+      img {
+        max-height: 2.5rem;
+        width: auto;
+        margin: auto;
+        display: block;
+      }
+    }
+
+    ion-item:hover {
+      cursor: pointer;
+      background: #f1f1f1
+    }
+  }
+}
+
+.song-list {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.song-list {
+  font-weight: bold;
+  font-size: 18px;
+}

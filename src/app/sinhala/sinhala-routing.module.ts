@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SinhalaPage
+  },
+  {
+    path: 'search-sinhala',
+    loadChildren: () => import('./search-sinhala/search-sinhala.module').then( m => m.SearchSinhalaPageModule)
   }
 ];
 

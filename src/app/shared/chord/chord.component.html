@@ -21,7 +21,7 @@ Transpose : <button (click)="transposeTo(key)" [ngClass]="checkKey(key) ? 'highl
       <ion-button color="ternary" (click)="zoomIn()"><ion-icon color="warning" name="add"></ion-icon></ion-button>
     </ion-item>
     <ion-item>
-      <pre [ngStyle]="{ 'font-size': (size+'px'), 'font-weight': 'bold' }">
+      <pre [ngStyle]="{ 'font-size': (size+'px') }">
         {{chords?.chords}}
       </pre>
     </ion-item>

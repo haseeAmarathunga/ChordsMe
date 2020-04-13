@@ -166,4 +166,8 @@ export class SinhalaPage implements OnInit {
             });
         });
     }
+
+    goToSearch() {
+        this.navController.navigateRoot('tabs/sinhala/search-sinhala');
+    }
 }
