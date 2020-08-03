@@ -113,7 +113,7 @@ export class SinhalaPage implements OnInit {
     }
 
     goToMain() {
-        this.navController.navigateRoot('tabs/home');
+        this.navController.navigateRoot('main/tabs/home');
     }
 
     addFocusArtist() {
@@ -168,6 +168,9 @@ export class SinhalaPage implements OnInit {
     }
 
     goToSearch() {
-        this.navController.navigateRoot('tabs/sinhala/search-sinhala');
+        this.navController.navigateRoot('main/tabs/sinhala/search-sinhala');
+    }
+    goToLatest() {
+        this.navController.navigateRoot('main/tabs/sinhala/latest');
     }
 }

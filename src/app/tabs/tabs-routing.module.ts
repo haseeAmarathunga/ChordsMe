@@ -28,12 +28,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'english',
+        path: 'lesson',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../english/english.module').then(m => m.EnglishPageModule)
+              import('../lesson/lesson.module').then(m => m.LessonPageModule)
           }
         ]
       },
@@ -49,14 +49,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: '/main/tabs/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: '/main/tabs/home',
     pathMatch: 'full'
   }
 ];

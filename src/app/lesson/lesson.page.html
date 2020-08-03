@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            <div fxLayout="row">
+                <div fxFlex="20%">
+                    <img src="assets/images/logo2.png" width="80">
+                </div>
+
+                <div fxFlex="80%">
+                    <div fxLayout="row">
+                        <div fxFlex="80%" style="margin-top: 30px; text-align: center;">
+                            Lessons
+                        </div>
+                        <div fxFlex="20%" style="margin-top: 20px;">
+                            <ion-button color="warning" (click)="goToMain()">
+                                <ion-icon name="home"></ion-icon>
+                            </ion-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-row>
+        <ion-img src="assets/images/lessons.jpg" style="margin-bottom: 10px;"></ion-img>
+        <ion-col col-md-6>
+            <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="loadLesson(chordTypes.major.code)">
+                <img src="assets/images/icons/music/major.png" width="50" height="50"><br/><b>Major</b></button>
+        </ion-col>
+
+        <ion-col col-md-6>
+            <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="loadLesson(chordTypes.minor.code)">
+                <img src="assets/images/icons/music/minor.png" width="50" height="50"><br/><b>Minor</b></button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-md-6>
+            <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="loadLesson(chordTypes.seventh.code)">
+                <img src="assets/images/icons/music/7th.png" width="50" height="50"><br/><b>7th</b></button>
+        </ion-col>
+
+        <ion-col col-md-6>
+            <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="loadLesson(chordTypes.sus.code)">
+                <img src="assets/images/icons/music/sus.png" width="50" height="50"><br/><b>Sustain</b></button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

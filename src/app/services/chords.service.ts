@@ -30,6 +30,17 @@ export class ChordsService {
     }));
   }
 
+  findLatestUploadChords() {
+    return this.fireStore.collection('chords', ref => ref.orderBy('createdDate').limitToLast(15)
+    ).snapshotChanges().pipe(map(chords => {
+      return chords.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    }));
+  }
+
   findChordsByName(keywords) {
     return this.fireStore.collection('chords', ref => ref.where('keywords', 'array-contains', keywords)
     ).snapshotChanges().pipe(map(chords => {

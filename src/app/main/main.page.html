@@ -1,0 +1,13 @@
+<ion-content [fullscreen]="true" #span>
+  <div id="container">
+    <strong>
+      <ion-img #img class="img" src="assets/images/logo1.png"></ion-img>
+    </strong>
+    <p #txt>Welcome to <span><b>ChordsMe</b></span></p>
+    <ion-avatar></ion-avatar>
+    <span #btn><span #transparent class="continue">Continue</span>
+          <br/>
+          <button (click)="btnClick()" mat-fab class="btn-forward"><mat-icon svgIcon="forward"></mat-icon></button>
+        </span>
+  </div>
+</ion-content>

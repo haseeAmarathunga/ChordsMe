@@ -25,6 +25,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 @import "my-theme";
+@import "~font-awesome/css/font-awesome.css";
+
 ion-loading.transparent {
   .loading-wrapper {
     background: transparent;
@@ -43,4 +45,19 @@ ion-loading.transparent {
 
 *{
   font-family: "Roboto";
+}
+
+
+.my-custom-modal-class   {
+  --backdrop-opacity: 0.8 !important;
+
+  .modal-wrapper {
+    --height: 40% !important;
+    position: absolute;
+  }
+}
+
+.swiper-pagination-bullets {
+  position: fixed;
+  margin-bottom: 40px;
 }

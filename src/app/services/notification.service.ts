@@ -13,9 +13,7 @@ export class NotificationService {
     const toast = await this.toastController.create({
       message: msg,
       color: 'primary',
-      duration: 3000,
-      showCloseButton: true,
-      closeButtonText: 'Close'
+      duration: 3000
     });
     toast.present();
   }
@@ -25,8 +23,6 @@ export class NotificationService {
       message: msg,
       color: 'danger',
       duration: 4000,
-      showCloseButton: true,
-      closeButtonText: 'Close'
     });
     toast.present();
   }
@@ -34,9 +30,7 @@ export class NotificationService {
     const toast = await this.toastController.create({
       message: msg,
       color: 'dark',
-      duration: 4000,
-      showCloseButton: true,
-      closeButtonText: 'Close'
+      duration: 4000
     });
     toast.present();
   }

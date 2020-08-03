@@ -15,6 +15,10 @@ export class AboutPage implements OnInit {
     }
 
     goToMain() {
-        this.navCtrl.navigateRoot('tabs/home');
+        this.navCtrl.navigateRoot('main/tabs/home');
+    }
+
+    onInstruction() {
+        this.navCtrl.navigateRoot('instruction');
     }
 }

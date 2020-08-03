@@ -9,3 +9,22 @@ ion-title{
   font-weight: bold;
   color:  #183b8d;
 }
+
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.ion-content{
+  --ion-background-color:#000000;
+  --ion-text-color: white;
+  //--background: #fff url('../../assets/images/whatsapp2.jpg')
+}
+
+.ion-header{
+  --ion-background-color:#000000;
+  --ion-text-color: white;
+  //--background: #fff url('../../assets/images/whatsapp2.jpg')
+}

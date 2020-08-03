@@ -36,14 +36,14 @@
 
       <ion-col col-md-6>
         <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
-          <img src="assets/images/icons/itune.png" width="50" height="50"><br/><b>Albums</b></button>
+          <img src="assets/images/icons/album.png" width="50" height="50"><br/><b>Albums</b></button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col col-md-6>
-        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
-          <img src="assets/images/icons/new-music.png" width="50" height="50"><br/><b>Latest</b></button>
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="goToLatest()">
+          <img src="assets/images/icons/latest.png" width="50" height="50"><br/><b>Latest</b></button>
       </ion-col>
 
       <ion-col col-md-6>

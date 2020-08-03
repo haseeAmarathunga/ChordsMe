@@ -8,6 +8,7 @@ import { AboutPageRoutingModule } from './about-routing.module';
 
 import { AboutPage } from './about.page';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         FormsModule,
         IonicModule,
         AboutPageRoutingModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatCardModule
     ],
   declarations: [AboutPage]
 })

@@ -17,7 +17,7 @@ export class EnglishPage implements OnInit {
     }
 
     goToMain() {
-        this.navCtrl.navigateRoot('tabs/home');
+        this.navCtrl.navigateRoot('main/tabs/home');
     }
 
     goToArtist() {

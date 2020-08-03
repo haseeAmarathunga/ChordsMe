@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" #span>
+    <ion-slides pager (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+            <img src="assets/images/instruction/1.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/2.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/3.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/4.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/5.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/6.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/7.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/8.jpg" height="100%">
+        </ion-slide>
+        <ion-slide>
+            <img src="assets/images/instruction/9.jpg" height="100%">
+        </ion-slide>
+    </ion-slides>
+    <b><a style="color: #233e7f; font-size: 12px;" (click)="skipPage()" id="skip">{{ skipMsg }}</a></b>
+</ion-content>

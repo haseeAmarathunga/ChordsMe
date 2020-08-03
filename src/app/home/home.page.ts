@@ -1,13 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AnimationController} from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page implements OnInit, AfterViewInit {
 
-    constructor() {
+    @ViewChild('img', {read: ElementRef, static: true}) img: ElementRef;
+    @ViewChild('logo', {read: ElementRef, static: true}) logo: ElementRef;
+
+    constructor(private animationCtrl: AnimationController) {
     }
 
     slideOpts = {
@@ -17,6 +21,27 @@ export class Tab1Page implements OnInit {
     };
 
     ngOnInit() {
-        // this.artistService.loadAllArtistsToLocal();
+    }
+
+    ngAfterViewInit(): void {
+        const animation = this.animationCtrl
+            .create()
+            .addElement(this.logo.nativeElement)
+            .duration(1500)
+            .iterations(1)
+            .keyframes([
+                { offset: 0, transform: 'scale(1) rotate(0)' },
+                { offset: 0.5, transform: 'scale(1.2) rotate(45deg)' },
+                { offset: 1, transform: 'scale(1) rotate(0)' }
+            ]);
+        animation.play();
+        const animationLogo = this.animationCtrl
+            .create()
+            .addElement(this.img.nativeElement)
+            .duration(2000)
+            .iterations(1)
+            .fromTo('transform', 'translateX(100px)', 'translateX(8px)')
+            .fromTo('opacity', 0.1, 1);
+        animationLogo.play();
     }
 }

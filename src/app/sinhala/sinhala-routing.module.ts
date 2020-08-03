@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'search-sinhala',
     loadChildren: () => import('./search-sinhala/search-sinhala.module').then( m => m.SearchSinhalaPageModule)
+  },
+  {
+    path: 'latest',
+    loadChildren: () => import('./latest/latest.module').then( m => m.LatestPageModule)
   }
 ];
 
