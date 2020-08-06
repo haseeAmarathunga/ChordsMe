@@ -8,7 +8,8 @@ import {ArtistService} from '../services/artist.service';
 import {Observable} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
-import {MatDialog} from '@angular/material';
+import {NotificationService} from '../services/notification.service';
+import {AddMobService} from '../services/add-mob.service';
 
 @Component({
     selector: 'app-sinhala',
@@ -19,9 +20,10 @@ export class SinhalaPage implements OnInit {
 
     constructor(private modalController: ModalController,
                 public artistService: ArtistService,
-                public dialog: MatDialog,
+                public adMobService: AddMobService,
                 public loadingController: LoadingController,
                 public navController: NavController,
+                public notifyService: NotificationService,
                 private chordService: ChordsService) {
     }
 
@@ -172,5 +174,13 @@ export class SinhalaPage implements OnInit {
     }
     goToLatest() {
         this.navController.navigateRoot('main/tabs/sinhala/latest');
+    }
+
+    onAlbum() {
+        this.notifyService.info('Album option will coming soon.');
+    }
+
+    onAdMob() {
+        this.adMobService.bannerAdd();
     }
 }

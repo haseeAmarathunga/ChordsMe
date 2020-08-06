@@ -43,15 +43,20 @@
     <div *ngIf="!selectedChord">
         <mat-card *ngFor="let chord of chordArr" style="margin-bottom: 15px;">
             <mat-card-header style="color: #1e2023; margin-bottom: 10px;">{{chord.name}} {{title}}</mat-card-header>
-            <ion-img (click)="viewImage(chord.code)" src="{{selectedDir}}{{chord.code}}.JPG"></ion-img>
+            <ion-img (click)="viewImage(chord.code, chord?.name)" src="{{selectedDir}}{{chord.code}}.JPG"></ion-img>
         </mat-card>
     </div>
 
     <div *ngIf="selectedChord">
         <mat-card style="margin-bottom: 15px;">
             <mat-card-header style="color: #1e2023; margin-bottom: 10px;">{{selectedChord?.name}} {{title}}</mat-card-header>
-            <ion-img (click)="viewImage(selectedChord?.code)" src="{{selectedDir}}{{selectedChord?.code}}.JPG"></ion-img>
+            <ion-img (click)="viewImage(selectedChord?.code, selectedChord?.name)" src="{{selectedDir}}{{selectedChord?.code}}.JPG"></ion-img>
         </mat-card>
     </div>
+    <ng-image-fullscreen-view
+            [images]="imageArr"
+            [imageIndex]="selectedImageIndex"
+            [show]="showFlag"
+            (close)="closeEventHandler()"></ng-image-fullscreen-view>
 
 </ion-content>

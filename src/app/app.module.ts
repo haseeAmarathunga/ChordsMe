@@ -15,16 +15,16 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatDialogModule} from '@angular/material';
 import {ProgressDialogComponent} from './shared/progress-dialog/progress-dialog.component';
-import {ZoomComponent} from './shared/chord/zoom/zoom.component';
 import {LessonChordComponent} from './shared/lesson-chord/lesson-chord.component';
 import {FlexModule} from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
-import {NgImageViewerModule} from '@haseeamarathunga/ng-image-viewer';
 import {HttpClientModule} from '@angular/common/http';
+import {NgImageFullscreenViewModule} from 'ng-image-fullscreen-view';
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
 
 @NgModule({
-  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, ZoomComponent, LessonChordComponent],
-  entryComponents: [ChordComponent, ProgressDialogComponent, ZoomComponent, LessonChordComponent],
+  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, LessonChordComponent],
+  entryComponents: [ChordComponent, ProgressDialogComponent, LessonChordComponent],
     imports: [BrowserModule,
         BrowserAnimationsModule,
         IonicModule.forRoot(),
@@ -33,11 +33,12 @@ import {HttpClientModule} from '@angular/common/http';
         MatDialogModule,
         MatButtonModule,
         HttpClientModule,
-        NgImageViewerModule,
+        NgImageFullscreenViewModule,
         AppRoutingModule, MatCardModule, FlexModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
+      AdMobFree,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

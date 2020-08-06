@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ModalController, NavController} from '@ionic/angular';
 import {chordTypes} from '../model/constants';
 import {LessonChordComponent} from '../shared/lesson-chord/lesson-chord.component';
+import {AddMobService} from '../services/add-mob.service';
 
 @Component({
     selector: 'app-lesson',
@@ -11,6 +12,7 @@ import {LessonChordComponent} from '../shared/lesson-chord/lesson-chord.componen
 export class LessonPage implements OnInit {
 
     constructor(private navCtrl: NavController,
+                private adMobService: AddMobService,
                 private modalController: ModalController) {
     }
 
@@ -31,5 +33,9 @@ export class LessonPage implements OnInit {
         modal.onDidDismiss().then(() => {
         });
         return await modal.present();
+    }
+
+    onAdMob() {
+        this.adMobService.rewardVideoAdd();
     }
 }

@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AnimationController} from '@ionic/angular';
+import {AddMobService} from '../services/add-mob.service';
 
 @Component({
     selector: 'app-home',
@@ -11,7 +12,8 @@ export class Tab1Page implements OnInit, AfterViewInit {
     @ViewChild('img', {read: ElementRef, static: true}) img: ElementRef;
     @ViewChild('logo', {read: ElementRef, static: true}) logo: ElementRef;
 
-    constructor(private animationCtrl: AnimationController) {
+    constructor(private animationCtrl: AnimationController,
+                private adMobService: AddMobService) {
     }
 
     slideOpts = {
@@ -27,7 +29,7 @@ export class Tab1Page implements OnInit, AfterViewInit {
         const animation = this.animationCtrl
             .create()
             .addElement(this.logo.nativeElement)
-            .duration(1500)
+            .duration(5000)
             .iterations(1)
             .keyframes([
                 { offset: 0, transform: 'scale(1) rotate(0)' },
@@ -43,5 +45,9 @@ export class Tab1Page implements OnInit, AfterViewInit {
             .fromTo('transform', 'translateX(100px)', 'translateX(8px)')
             .fromTo('opacity', 0.1, 1);
         animationLogo.play();
+    }
+
+    onAdMob() {
+        this.adMobService.interstitialAdd();
     }
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from '@ionic/angular';
+import {AddMobService} from '../services/add-mob.service';
 
 @Component({
     selector: 'app-about',
@@ -8,7 +9,8 @@ import {NavController} from '@ionic/angular';
 })
 export class AboutPage implements OnInit {
 
-    constructor(private navCtrl: NavController) {
+    constructor(private navCtrl: NavController,
+                private adMobService: AddMobService) {
     }
 
     ngOnInit() {
@@ -20,5 +22,9 @@ export class AboutPage implements OnInit {
 
     onInstruction() {
         this.navCtrl.navigateRoot('instruction');
+    }
+
+    onAdMob() {
+        this.adMobService.rewardVideoAdd();
     }
 }

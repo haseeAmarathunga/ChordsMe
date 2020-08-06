@@ -28,14 +28,14 @@
 <ion-content class="ion-padding">
   <div *ngIf="isHome">
     <ion-row>
-      <ion-img src="assets/images/sinhala-geetha.jpg"></ion-img>
+      <ion-img (click)="onAdMob()"  src="assets/images/sinhala-geetha.jpg"></ion-img>
       <ion-col col-md-6>
         <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="goToArtist()">
           <img src="assets/images/icons/1.png" width="50" height="50"><br/><b>Artists</b></button>
       </ion-col>
 
       <ion-col col-md-6>
-        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;">
+        <button mat-stroked-button color="primary" style="width: 100%; margin-bottom: 10px;" (click)="onAlbum()">
           <img src="assets/images/icons/album.png" width="50" height="50"><br/><b>Albums</b></button>
       </ion-col>
     </ion-row>

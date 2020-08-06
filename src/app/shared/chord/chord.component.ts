@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {Chord} from '../../model/chord';
 import {NotificationService} from '../../services/notification.service';
+import {AddMobService} from '../../services/add-mob.service';
 
 @Component({
   selector: 'app-chord',
@@ -11,6 +12,7 @@ import {NotificationService} from '../../services/notification.service';
 export class ChordComponent implements OnInit {
 
   constructor(private modalController: ModalController,
+              private adMobService: AddMobService,
               private notifyService: NotificationService) { }
   keys = ['Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G'];
   size = 13;
@@ -26,6 +28,7 @@ export class ChordComponent implements OnInit {
   }
   zoomOut() {
     this.size -= 1;
+    this.adMobService.bannerAdd();
   }
 
   goBack() {
@@ -46,6 +49,7 @@ export class ChordComponent implements OnInit {
     }
   }
   transposeTo(key) {
+    this.adMobService.bannerAdd();
     this.notifyService.info('Transpose will coming soon!');
   }
 }

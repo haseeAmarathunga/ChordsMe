@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {chordArr, chordTypes, dirTypes} from '../../model/constants';
 import {ModalController} from '@ionic/angular';
-import {ZoomComponent} from '../chord/zoom/zoom.component';
 
 @Component({
     selector: 'app-lesson-chord',
@@ -17,6 +16,9 @@ export class LessonChordComponent implements OnInit {
     selectedDir;
     title;
     selectedChord = null;
+    showFlag = false;
+    selectedImageIndex = -1;
+    imageArr = [];
 
     constructor(private modalController: ModalController) {
     }
@@ -48,15 +50,22 @@ export class LessonChordComponent implements OnInit {
         this.selectedChord = null;
     }
 
-    async viewImage(code: string) {
-        const imgUrl = this.selectedDir + code + '.JPG';
-        const modal = await this.modalController.create({
-            component: ZoomComponent,
-            cssClass: 'my-custom-modal-class',
-            componentProps: {data: imgUrl}
-        });
-        modal.onDidDismiss().then(() => {
-        });
-        return await modal.present();
+    viewImage(image, name) {
+        this.imageArr = [];
+        const url = this.selectedDir + image + '.JPG';
+        console.log(url);
+        const img = {
+            image: url,
+            thumbImage: url,
+            alt: name + ' ' + this.title,
+            title: name + ' ' + this.title
+        };
+        this.imageArr.push(img);
+        this.selectedImageIndex = 0;
+        this.showFlag = true;
+    }
+    closeEventHandler() {
+        this.showFlag = false;
+        this.selectedImageIndex = -1;
     }
 }
