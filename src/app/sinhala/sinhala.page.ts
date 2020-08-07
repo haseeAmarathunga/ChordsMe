@@ -181,6 +181,6 @@ export class SinhalaPage implements OnInit {
     }
 
     onAdMob() {
-        this.adMobService.bannerAdd();
+        this.adMobService.interstitialAdd();
     }
 }

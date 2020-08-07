@@ -28,7 +28,7 @@ export class ChordComponent implements OnInit {
   }
   zoomOut() {
     this.size -= 1;
-    this.adMobService.bannerAdd();
+    this.adMobService.interstitialAdd();
   }
 
   goBack() {
@@ -49,7 +49,7 @@ export class ChordComponent implements OnInit {
     }
   }
   transposeTo(key) {
-    this.adMobService.bannerAdd();
+    this.adMobService.interstitialAdd();
     this.notifyService.info('Transpose will coming soon!');
   }
 }
