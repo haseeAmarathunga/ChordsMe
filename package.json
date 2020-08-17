@@ -1,8 +1,8 @@
 {
   "name": "chordsMe",
-  "version": "0.0.2",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "0.8.0",
+  "author": "Hasitha Amarathunga",
+  "homepage": "https://haseeAmarathunga.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -89,7 +89,7 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-admob-free": {
-        "ADMOB_APP_ID": "ca-app-pub-5644153964390331~9041555035"
+        "ADMOB_APP_ID": "ca-app-pub-5644153964390331~9968613574"
       }
     },
     "platforms": [

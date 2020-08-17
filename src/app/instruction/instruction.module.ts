@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InstructionPageRoutingModule } from './instruction-routing.module';
 
 import { InstructionPage } from './instruction.page';
+import {FlexModule} from '@angular/flex-layout';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    InstructionPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        InstructionPageRoutingModule,
+        FlexModule
+    ],
   declarations: [InstructionPage]
 })
 export class InstructionPageModule {}

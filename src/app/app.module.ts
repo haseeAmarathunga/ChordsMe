@@ -13,7 +13,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatDialogModule, MatIconModule} from '@angular/material';
 import {ProgressDialogComponent} from './shared/progress-dialog/progress-dialog.component';
 import {LessonChordComponent} from './shared/lesson-chord/lesson-chord.component';
 import {FlexModule} from '@angular/flex-layout';
@@ -21,10 +21,11 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgImageFullscreenViewModule} from 'ng-image-fullscreen-view';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import {ZoomComponent} from './shared/chord/zoom/zoom.component';
 
 @NgModule({
-  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, LessonChordComponent],
-  entryComponents: [ChordComponent, ProgressDialogComponent, LessonChordComponent],
+  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent],
+  entryComponents: [ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent],
     imports: [BrowserModule,
         BrowserAnimationsModule,
         IonicModule.forRoot(),
@@ -34,7 +35,7 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
         MatButtonModule,
         HttpClientModule,
         NgImageFullscreenViewModule,
-        AppRoutingModule, MatCardModule, FlexModule, FormsModule],
+        AppRoutingModule, MatCardModule, FlexModule, FormsModule, MatIconModule],
   providers: [
     StatusBar,
     SplashScreen,

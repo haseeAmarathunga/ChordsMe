@@ -3,6 +3,8 @@ import {ModalController} from '@ionic/angular';
 import {Chord} from '../../model/chord';
 import {NotificationService} from '../../services/notification.service';
 import {AddMobService} from '../../services/add-mob.service';
+import {ZoomComponent} from './zoom/zoom.component';
+import {ZoomService} from '../../services/zoom.service';
 
 @Component({
   selector: 'app-chord',
@@ -13,22 +15,16 @@ export class ChordComponent implements OnInit {
 
   constructor(private modalController: ModalController,
               private adMobService: AddMobService,
-              private notifyService: NotificationService) { }
+              public zoomService: ZoomService,
+              private notifyService: NotificationService) {}
   keys = ['Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G'];
-  size = 13;
   chords: Chord;
   @Input() data: Chord;
-  ngOnInit() {
+  async ngOnInit() {
     if (this.data) {
       this.chords = this.data;
     }
-  }
-  zoomIn() {
-    this.size += 1;
-  }
-  zoomOut() {
-    this.size -= 1;
-    this.adMobService.interstitialAdd();
+    this.onZoomLoad();
   }
 
   goBack() {
@@ -51,5 +47,15 @@ export class ChordComponent implements OnInit {
   transposeTo(key) {
     this.adMobService.interstitialAdd();
     this.notifyService.info('Transpose will coming soon!');
+  }
+
+  async onZoomLoad() {
+    const modal = await this.modalController.create({
+      component: ZoomComponent,
+      cssClass: 'zoom-dialog'
+    });
+    modal.onDidDismiss().then(data => {
+    });
+    return await modal.present();
   }
 }

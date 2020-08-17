@@ -61,3 +61,13 @@ ion-loading.transparent {
   position: fixed;
   margin-bottom: 40px;
 }
+.zoom-dialog {
+  .modal-wrapper {
+    width: 15%;
+    left: 88%;
+    height: 15%;
+    top: 10%;
+    position: sticky;
+    background: rgba(255,255,255,0.9);
+  }
+}

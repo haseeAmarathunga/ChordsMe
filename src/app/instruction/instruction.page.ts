@@ -33,4 +33,9 @@ export class InstructionPage implements OnInit {
         localStorage.setItem('isFirst', 'n');
         this.navCtrl.navigateRoot('main/tabs/home');
     }
+
+    goToMain() {
+        localStorage.setItem('isFirst', 'n');
+        this.navCtrl.navigateRoot('main/tabs/home');
+    }
 }
