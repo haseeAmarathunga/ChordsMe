@@ -53,10 +53,5 @@
             <ion-img (click)="viewImage(selectedChord?.code, selectedChord?.name)" src="{{selectedDir}}{{selectedChord?.code}}.JPG"></ion-img>
         </mat-card>
     </div>
-    <ng-image-fullscreen-view
-            [images]="imageArr"
-            [imageIndex]="selectedImageIndex"
-            [show]="showFlag"
-            (close)="closeEventHandler()"></ng-image-fullscreen-view>
 
 </ion-content>

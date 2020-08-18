@@ -22,10 +22,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgImageFullscreenViewModule} from 'ng-image-fullscreen-view';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import {ZoomComponent} from './shared/chord/zoom/zoom.component';
+import {PreviewComponent} from './shared/lesson-chord/preview/preview.component';
 
 @NgModule({
-  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent],
-  entryComponents: [ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent],
+  declarations: [AppComponent, ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent, PreviewComponent],
+  entryComponents: [ChordComponent, ProgressDialogComponent, LessonChordComponent, ZoomComponent, PreviewComponent],
     imports: [BrowserModule,
         BrowserAnimationsModule,
         IonicModule.forRoot(),
