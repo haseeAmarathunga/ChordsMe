@@ -1,5 +1,11 @@
 import {Injectable} from '@angular/core';
-import {AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig, AdMobFreeRewardVideoConfig} from '@ionic-native/admob-free/ngx';
+import {
+    AdMobFree,
+    AdMobFreeBanner,
+    AdMobFreeBannerConfig,
+    AdMobFreeInterstitialConfig,
+    AdMobFreeRewardVideoConfig
+} from '@ionic-native/admob-free/ngx';
 
 @Injectable({
     providedIn: 'root'
@@ -9,8 +15,9 @@ export class AddMobService {
     constructor(private adMob: AdMobFree) {
     }
 
-    bannerAdd() {
+    bannerAdd(): AdMobFreeBanner {
         const bannerConfig: AdMobFreeBannerConfig = {
+            id: 'ca-app-pub-5644153964390331/1034300362',
             isTesting: false,
             autoShow: true
         };
@@ -19,10 +26,7 @@ export class AddMobService {
             .then(() => {
             }).catch(() => {
         });
-        this.adMob.banner.show()
-            .then(() => {
-            }).catch(() => {
-        });
+        return this.adMob.banner;
     }
 
     interstitialAdd() {

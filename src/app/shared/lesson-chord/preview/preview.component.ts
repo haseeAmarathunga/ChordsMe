@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {LoadingController, ModalController} from '@ionic/angular';
 import {AddMobService} from '../../../services/add-mob.service';
 
@@ -7,7 +7,7 @@ import {AddMobService} from '../../../services/add-mob.service';
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.scss'],
 })
-export class PreviewComponent implements OnInit {
+export class PreviewComponent implements OnInit, OnDestroy {
 
   slideOpts = {
     initialSlide: 0,
@@ -42,6 +42,11 @@ export class PreviewComponent implements OnInit {
         this.ver3 = this.v3;
       }
     });
+    this.adMobService.bannerAdd().show().then(() => {}).catch(() => {});
+  }
+
+  ngOnDestroy(): void {
+    this.adMobService.bannerAdd().remove().then(() => {}).catch(() => {});
   }
 
   goBack() {

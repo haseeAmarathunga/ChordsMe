@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {Chord} from '../../model/chord';
 import {NotificationService} from '../../services/notification.service';
@@ -11,7 +11,7 @@ import {ZoomService} from '../../services/zoom.service';
   templateUrl: './chord.component.html',
   styleUrls: ['./chord.component.scss'],
 })
-export class ChordComponent implements OnInit {
+export class ChordComponent implements OnInit, OnDestroy {
 
   constructor(private modalController: ModalController,
               private adMobService: AddMobService,
@@ -25,6 +25,11 @@ export class ChordComponent implements OnInit {
       this.chords = this.data;
     }
     this.onZoomLoad();
+    this.adMobService.bannerAdd().show().then(() => {}).catch(() => {});
+  }
+
+  ngOnDestroy(): void {
+    this.adMobService.bannerAdd().remove().then(() => {}).catch(() => {});
   }
 
   goBack() {
