@@ -76,9 +76,9 @@ export class MainPage implements OnInit, AfterViewInit {
             .fromTo('transform', 'translateX(0px)', 'translateX(-300px)')
             .fromTo('opacity', 1, 0.1);
         animationSpan.play();
-        // this.navCtrl.navigateRoot('main/tabs/home');
+        // this.navCtrl.navigateRoot('main/side-nav/home');
         if (localStorage.getItem('isFirst') === 'n') {
-          this.navCtrl.navigateRoot('main/tabs/home');
+          this.navCtrl.navigateRoot('main/side-nav/home');
         } else {
           this.navCtrl.navigateRoot('instruction');
         }

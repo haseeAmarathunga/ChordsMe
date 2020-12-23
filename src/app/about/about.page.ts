@@ -17,7 +17,7 @@ export class AboutPage implements OnInit {
     }
 
     goToMain() {
-        this.navCtrl.navigateRoot('main/tabs/home');
+        this.navCtrl.navigateRoot('main/side-nav/home');
     }
 
     onInstruction() {

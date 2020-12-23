@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoadingController, ModalController, NavController} from '@ionic/angular';
 import {ChordComponent} from '../shared/chord/chord.component';
 import {Chord} from '../model/chord';
@@ -16,7 +16,7 @@ import {AddMobService} from '../services/add-mob.service';
     templateUrl: './sinhala.page.html',
     styleUrls: ['./sinhala.page.scss'],
 })
-export class SinhalaPage implements OnInit {
+export class SinhalaPage implements OnInit, OnDestroy {
 
     constructor(private modalController: ModalController,
                 public artistService: ArtistService,
@@ -43,6 +43,11 @@ export class SinhalaPage implements OnInit {
             artist: new FormControl(''),
             chords: new FormControl(''),
         });
+        this.adMobService.bannerAdd().show().then(() => {}).catch(() => {});
+    }
+
+    ngOnDestroy(): void {
+        this.adMobService.bannerAdd().remove().then(() => {}).catch(() => {});
     }
 
     async loadChords(song: Chord) {
@@ -115,7 +120,7 @@ export class SinhalaPage implements OnInit {
     }
 
     goToMain() {
-        this.navController.navigateRoot('main/tabs/home');
+        this.navController.navigateRoot('main/side-nav/home');
     }
 
     addFocusArtist() {

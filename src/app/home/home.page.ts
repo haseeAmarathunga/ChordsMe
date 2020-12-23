@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AnimationController} from '@ionic/angular';
 import {AddMobService} from '../services/add-mob.service';
 
@@ -7,7 +7,7 @@ import {AddMobService} from '../services/add-mob.service';
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss']
 })
-export class Tab1Page implements OnInit, AfterViewInit {
+export class Tab1Page implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild('img', {read: ElementRef, static: true}) img: ElementRef;
     @ViewChild('logo', {read: ElementRef, static: true}) logo: ElementRef;
@@ -23,6 +23,11 @@ export class Tab1Page implements OnInit, AfterViewInit {
     };
 
     ngOnInit() {
+        this.adMobService.bannerAdd().show().then(() => {}).catch(() => {});
+    }
+
+    ngOnDestroy(): void {
+        this.adMobService.bannerAdd().remove().then(() => {}).catch(() => {});
     }
 
     ngAfterViewInit(): void {

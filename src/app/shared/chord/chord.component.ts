@@ -53,7 +53,6 @@ export class ChordComponent implements OnInit, OnDestroy {
     this.adMobService.interstitialAdd();
     this.notifyService.info('Transpose will coming soon!');
   }
-
   async onZoomLoad() {
     const modal = await this.modalController.create({
       component: ZoomComponent,

@@ -31,11 +31,11 @@ export class InstructionPage implements OnInit {
 
     skipPage() {
         localStorage.setItem('isFirst', 'n');
-        this.navCtrl.navigateRoot('main/tabs/home');
+        this.navCtrl.navigateRoot('main/side-nav/home');
     }
 
     goToMain() {
         localStorage.setItem('isFirst', 'n');
-        this.navCtrl.navigateRoot('main/tabs/home');
+        this.navCtrl.navigateRoot('main/side-nav/home');
     }
 }

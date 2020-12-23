@@ -1,0 +1,29 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content class="bg-image">
+        <div id="inbox-list">
+          <img src="assets/images/logo1.png" class="user"/>
+<!--          <ion-button color="light" style="margin-top: -60px; margin-left: 60%;">-->
+<!--            <ion-icon name="settings-outline"></ion-icon>-->
+<!--          </ion-button>-->
+          <div>
+            <h4 style="text-align: center; color: #4d4d4d;">Welcome to <span class="username">ChordsMe</span>
+            </h4>
+            <hr>
+          </div>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+                      detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [name]="p.icon"
+                        [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <!--                    <ion-img src="assets/images/cook-girl.webp"></ion-img>-->
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
