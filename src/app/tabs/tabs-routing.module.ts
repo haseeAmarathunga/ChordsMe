@@ -49,14 +49,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/main/tabs/home',
+        redirectTo: '/main/side-nav/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/main/tabs/home',
+    redirectTo: '/main/side-nav/home',
     pathMatch: 'full'
   }
 ];

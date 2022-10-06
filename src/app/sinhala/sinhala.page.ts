@@ -175,10 +175,10 @@ export class SinhalaPage implements OnInit, OnDestroy {
     }
 
     goToSearch() {
-        this.navController.navigateRoot('main/tabs/sinhala/search-sinhala');
+        this.navController.navigateRoot('main/side-nav/sinhala/search-sinhala');
     }
     goToLatest() {
-        this.navController.navigateRoot('main/tabs/sinhala/latest');
+        this.navController.navigateRoot('main/side-nav/sinhala/latest');
     }
 
     onAlbum() {

@@ -37,7 +37,7 @@ export class LatestPage implements OnInit {
     }
 
     goToSinhala() {
-        this.navCtrl.navigateRoot('main/tabs/sinhala');
+        this.navCtrl.navigateRoot('main/side-nav/sinhala');
     }
 
     async loadChords(song: Chord) {

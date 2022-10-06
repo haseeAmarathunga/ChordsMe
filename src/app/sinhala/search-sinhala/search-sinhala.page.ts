@@ -70,7 +70,7 @@ export class SearchSinhalaPage implements OnInit {
   }
 
   goToSinhala() {
-    this.navCtrl.navigateRoot('main/tabs/sinhala');
+    this.navCtrl.navigateRoot('main/side-nav/sinhala');
   }
 
   addFocusSong() {
